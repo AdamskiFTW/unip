@@ -1,0 +1,69 @@
+#!/usr/bin/python
+#unip is a simple tool for copying, moving, deleting or renaming files
+
+import os, sys, shutil
+
+def copy():
+    src = sys.argv[2]
+    dst = sys.argv[3]
+    print("Copy ") + src + (" to ") + dst + ("?")
+    copyans = raw_input("")
+    if copyans[0].lower() == "y":
+        shutil.copy(src, dst)
+    else:
+        sys.exit()
+
+def move():
+    src = sys.argv[2]
+    dst = sys.argv[3]
+    print("Move ") + src + (" to ") + dst + ("?")
+    moveans = raw_input("")
+    if moveans[0].lower() == "y":
+        shutil.move(src, dst)
+    else:
+        sys.exit()
+
+def delete():
+    name = sys.argv[2]
+    print("Delete file ") + name + ("?")
+    delans = raw_input("")
+    if delans[0].lower() == "y":
+        os.remove(name)
+    else:
+        sys.exit()
+
+def rename():
+    name = sys.argv[2]
+    rename = sys.argv[3]
+    print("Rename ") + name + (" to ") + rename + ("?")
+    reans = raw_input("")
+    if reans[0].lower() == "y":
+        os.rename(name, rename)
+    else:
+        sys.exit()
+
+def help():
+    print("unip is a simple utility tool to copy, move, delete and rename files\n")
+    print("Usage: " + os.path.basename(__file__) + " <function> <filename> <pathname>\n")
+    print("<function> can be copy, move, delete or rename\n")
+    print("<filename> is the name of the target file\n")
+    print("<pathname> is the name of the target pathname (where applicable)\n")
+
+if len(sys.argv) == 1:
+    print("Use " + os.path.basename(__file__) + " help for info")
+    sys.exit()
+else:
+    func1 = sys.argv[1]
+    if func1.lower() == "delete":
+        delete()
+    elif func1.lower() == "rename":
+        rename()
+    elif func1.lower() == "move":
+        move()
+    elif func1.lower() == "copy":
+        copy()
+    elif func1.lower() == "help":
+        help()
+    else:
+        print("Unknown command. For help use 'unip help'")
+        sys.exit()
