@@ -3,44 +3,44 @@
 
 import os, sys, shutil
 
-def copy():
+def copy(src, dst, copyans):
     src = sys.argv[2]
     dst = sys.argv[3]
     print("Copy ") + src + (" to ") + dst + ("?")
     copyans = raw_input("")
     if copyans[0].lower() == "y":
-        shutil.copy(src, dst)
+        return shutil.copy(src, dst)
     else:
-        sys.exit()
+        return sys.exit()
 
-def move():
+def move(src, dst, moveans):
     src = sys.argv[2]
     dst = sys.argv[3]
     print("Move ") + src + (" to ") + dst + ("?")
     moveans = raw_input("")
     if moveans[0].lower() == "y":
-        shutil.move(src, dst)
+        return shutil.move(src, dst)
     else:
-        sys.exit()
+        return sys.exit()
 
-def delete():
+def delete(name, delans):
     name = sys.argv[2]
     print("Delete file ") + name + ("?")
     delans = raw_input("")
     if delans[0].lower() == "y":
-        os.remove(name)
+        return os.remove(name)
     else:
-        sys.exit()
+        return sys.exit()
 
-def rename():
+def rename(name, rename, reans):
     name = sys.argv[2]
     rename = sys.argv[3]
     print("Rename ") + name + (" to ") + rename + ("?")
     reans = raw_input("")
     if reans[0].lower() == "y":
-        os.rename(name, rename)
+        return os.rename(name, rename)
     else:
-        sys.exit()
+        return sys.exit()
 
 def help():
     print("unip is a simple utility tool to copy, move, delete and rename files\n")
