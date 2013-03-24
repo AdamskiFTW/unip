@@ -3,9 +3,7 @@
 
 import os, sys, shutil
 
-def copy(src, dst, copyans):
-    src = sys.argv[2]
-    dst = sys.argv[3]
+def copy(src, dst):
     print("Copy ") + src + (" to ") + dst + ("?")
     copyans = raw_input("")
     if copyans[0].lower() == "y":
@@ -13,9 +11,7 @@ def copy(src, dst, copyans):
     else:
         return sys.exit()
 
-def move(src, dst, moveans):
-    src = sys.argv[2]
-    dst = sys.argv[3]
+def move(src, dst):
     print("Move ") + src + (" to ") + dst + ("?")
     moveans = raw_input("")
     if moveans[0].lower() == "y":
@@ -23,8 +19,7 @@ def move(src, dst, moveans):
     else:
         return sys.exit()
 
-def delete(name, delans):
-    name = sys.argv[2]
+def delete(name):
     print("Delete file ") + name + ("?")
     delans = raw_input("")
     if delans[0].lower() == "y":
@@ -32,9 +27,7 @@ def delete(name, delans):
     else:
         return sys.exit()
 
-def rename(name, rename, reans):
-    name = sys.argv[2]
-    rename = sys.argv[3]
+def rename(name, rename):
     print("Rename ") + name + (" to ") + rename + ("?")
     reans = raw_input("")
     if reans[0].lower() == "y":
@@ -55,13 +48,13 @@ if len(sys.argv) == 1:
 else:
     func1 = sys.argv[1]
     if func1.lower() == "delete":
-        delete()
+        delete(name = sys.argv[2])
     elif func1.lower() == "rename":
-        rename()
+        rename(name = sys.argv[2], rename = sys.argv[3])
     elif func1.lower() == "move":
-        move()
+        move(src = sys.argv[2], dst = sys.argv[3])
     elif func1.lower() == "copy":
-        copy()
+        copy(src = sys.argv[2], dst = sys.argv[3])
     elif func1.lower() == "help":
         help()
     else:
