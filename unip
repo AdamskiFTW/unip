@@ -40,7 +40,7 @@ def help():
     print("Usage: " + os.path.basename(__file__) + " <function> <filename> <pathname>\n")
     print("<function> can be copy, move, delete or rename\n")
     print("<filename> is the name of the target file\n")
-    print("<pathname> is the name of the target pathname (where applicable)\n")
+    print("<pathname> is the name of the target pathname (where applicable)")
 
 if len(sys.argv) == 1:
     print("Use " + os.path.basename(__file__) + " help for info")
@@ -48,13 +48,13 @@ if len(sys.argv) == 1:
 else:
     func1 = sys.argv[1]
     if func1.lower() == "delete":
-        delete(name = sys.argv[2])
+        delete(sys.argv[2])
     elif func1.lower() == "rename":
-        rename(name = sys.argv[2], rename = sys.argv[3])
+        rename(sys.argv[2], sys.argv[3])
     elif func1.lower() == "move":
-        move(src = sys.argv[2], dst = sys.argv[3])
+        move(sys.argv[2], sys.argv[3])
     elif func1.lower() == "copy":
-        copy(src = sys.argv[2], dst = sys.argv[3])
+        copy(sys.argv[2], sys.argv[3])
     elif func1.lower() == "help":
         help()
     else:
