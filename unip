@@ -43,7 +43,7 @@ def help():
     print("<pathname> is the name of the target pathname (where applicable)")
 
 if len(sys.argv) == 1:
-    print("Use " + os.path.basename(__file__) + " help for info")
+    print("Use \'" + os.path.basename(__file__) + " help\' for info")
     sys.exit()
 else:
     func1 = sys.argv[1]
